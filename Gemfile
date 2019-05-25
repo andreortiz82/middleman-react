@@ -9,7 +9,4 @@ gem 'rake'
 gem 'puma'
 gem 'rack-contrib'
 gem 'haml'
-
-group :development do
-  gem "middleman-livereload", "~> 3.4.6"
-end
+gem "middleman-livereload", "~> 3.4.6"
