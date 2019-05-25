@@ -16,20 +16,20 @@ page '/*.txt', layout: false
 
 activate :directory_indexes
 
-# activate :external_pipeline,
-#   name: :webpack,
-#   # using yarn command at `./node_modules/yarn/bin/yarn`
-#   # because it won't be globally installed on build server
-#   command: build? ?  "./node_modules/yarn/bin/yarn run build" : "./node_modules/yarn/bin/yarn run start",
-#   source: ".tmp/dist",
-#   latency: 1
+dev_com = "./node_modules/webpack/bin/webpack.js --watch -d"
+prod_com = "./node_modules/webpack/bin/webpack.js --bail"
+
+activate :external_pipeline,
+  name: :webpack,
+  # using yarn command at `./node_modules/yarn/bin/yarn`
+  # because it won't be globally installed on build server
+  command: build? ?  prod_com : dev_com,
+  source: ".tmp/dist",
+  latency: 1
 
 configure :development do
   activate :livereload
 end
-
-set :js_dir,     'assets/javascripts'
-set :images_dir, 'images'
 
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
@@ -59,6 +59,8 @@ end
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
 configure :build do
+  ignore '/javascripts/components/*.js'
+  ignore '/javascripts/site.js'
   activate :minify_css
   activate :asset_hash
 end
