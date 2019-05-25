@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
+  mode: 'production',
   entry: {
     site: './source/javascripts/site.js',
   },
