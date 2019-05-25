@@ -57,6 +57,7 @@ end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
+set :build_dir, 'tmp'
 
 configure :build do
   ignore '/javascripts/components/*.js'
