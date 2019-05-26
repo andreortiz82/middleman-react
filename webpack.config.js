@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
-  mode: 'production',
+  mode: 'none',
   entry: {
     site: './source/javascripts/site.js',
   },
