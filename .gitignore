@@ -3,5 +3,4 @@
 .DS_Store
 .sass-cache
 .tmp/
-build/
 node_modules/
